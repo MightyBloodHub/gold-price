@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -24,16 +24,37 @@
             <div class="col-md-6 text-right order-lg-2 order-md-2 order-sm-1"> <a href="#" class="brand-img d-inline-block"> <img src="images/logo.svg" alt=""> </a> </div>
         </div>
         <div class="row">
-
-            <iframe src="https://new2.moci.gov.kw/ar/gold/" height="560" width="900" title="Iframe Example"></iframe>
-            <style>
-                iframe {
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 10%;
-                }
-            </style>
+            <div class="col-md-12">
+                <div class="price_box text-center">
+                    <h1>  <span> للأونصة $</span><strong id="price_ounce">$1290.85</strong></h1>
+                </div>
+                <div class="number-counter-main">
+                    <ul class="number-item">
+                        <li>
+                            <h3>24</h3>
+                            <p ><span>د.ك</span><strong id="price_g24">12.731</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>22</h3>
+                            <p ><span>د.ك</span><strong id="price_g22">11.687</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>21</h3>
+                            <p ><span>د.ك</span><strong id="price_g21">11.152</strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>18</h3>
+                            <p ><span>د.ك</span><strong id="price_g18">9.561</strong></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -61,7 +82,7 @@
 							var dayOfMonth = dateArray[2];
 							var year = dateArray[3];
 							var time = dateArray[4];
-                            var dateString = month + " " + dayOfMonth + " " + year 
+							var dateString =  year + " " + dayOfMonth + " " + day + " " + month;
 							document.getElementById("timeOnly").innerHTML = time;
 							document.getElementById("dateOnly").innerHTML = dateString;
             }, 1000);
