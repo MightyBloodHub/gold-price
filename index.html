@@ -108,6 +108,45 @@ $k18 = round($k24 *0.750,2);
 							document.getElementById("dateOnly").innerHTML = dateString;
             }, 1000);
             
+            
+      function round_down(value, decPlaces) {
+    return Math.floor(value * Math.pow(10, decPlaces)) / Math.pow(10, decPlaces);
+}      
+            
+     function apihit(){
+		 
+				// set endpoint and your access key
+				endpoint = 'latest'
+				access_key = 'yx1y6j0kerevo22cwwdqua16dsnjdzpm2251z5eyks8gpa3l54o27ucveky9';
+				base = 'KWD';
+
+				// get the most recent exchange rates via the "latest" endpoint:
+				$.ajax({
+				method : 'GET',
+				url: 'https://metals-api.com/api/' + endpoint + '?access_key=' + access_key + '&base=KWD&symbols=XAU',   
+				
+				success: function(json) {
+						
+							console.log(json);
+							var rate = parseFloat(json.rates.XAU).toFixed(2);
+					
+							var k24 = parseFloat(rate / 31.103).toFixed(2);
+							var k22 = parseFloat(k24 *0.916).toFixed(2);
+							var k21 = parseFloat(k24 *0.875).toFixed(2);
+							var k18 = parseFloat(k24 *0.750).toFixed(2);		
+							
+							$('#price_ounce').html(rate);
+							
+							$('#price_g24').html(k24);
+					$('#price_g22').html(k22);
+					$('#price_g21').html(k21);
+					$('#price_g18').html(k18);
+				}
+				});
+
+	 }       
+    apihit();        
+            
    function APIRun( starttime , endtime , feq){
 	   
 	    var currentDate = new Date();
@@ -119,20 +158,8 @@ $k18 = round($k24 *0.750,2);
 	   
 	if(timeArray[0] >= starttime && timeArray[0] <= endtime) {
 		setInterval(function() {
-		$.ajax({
-			  url: "details.php",
-			  cache: false,
-			  success: function(html){
-				console.log(html);
-				var gold = JSON.parse(html);
-					$('#price_g24').html(gold.c24);
-					$('#price_g22').html(gold.c22);
-					$('#price_g21').html(gold.c21);
-					$('#price_g18').html(gold.c18);
-					$('#price_ounce').html(gold.ou);
-					
-			  }
-			});
+			
+			apihit();
 		
 		}, feq);
 		   
