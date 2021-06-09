@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/media.css">
+<title>LIST || ALOTHMAN GALLARY FOR FINE JEWELRY</title>
+</head>
+
+<body>
+<?php
+/*	
+$endpoint = 'latest';
+$access_key = 'd3zf4bu9s62m6u9mszawa7dbvx80168ebn754eworgxi04vi8jdkn91zuerz';
+
+$ch = curl_init('https://metals-api.com/api/'.$endpoint.'?access_key='.$access_key.'&base=KWD&symbols=XAU');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$json = curl_exec($ch);
+curl_close($ch);
+
+
+$exchangeRates = json_decode($json, true);
+$ou = round($exchangeRates['rates']['XAU'],2);
+$k24 = round($exchangeRates['rates']['XAU'] / 31.103,2);
+$k22 = round($k24 *0.916,2);
+$k21 = round($k24 *0.875,2);
+$k18 = round($k24 *0.750,2);
+*/
+	?>
+	
+<div class="price-main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 order-lg-1 order-md-1 order-sm-2">
+                <div class="header-left">
+                    <h1><span id="dateOnly"><</h1>
+                    <h2><span id="timeOnly">00:00:00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-6 text-right order-lg-2 order-md-2 order-sm-1"> <a href="#" class="brand-img d-inline-block"> <img src="images/logo.svg" alt=""> </a> </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="price_box text-center">
+                    <h1>  <span> للأونصة</span><strong id="price_ounce"><?php echo $ou; ?></strong></h1>
+                </div>
+                <div class="number-counter-main">
+                    <ul class="number-item">
+                        <li>
+                            <h3>24</h3>
+                            <p ><span>د.ك</span><strong id="price_g24"><?php echo $k24; ?></strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>22</h3>
+                            <p ><span>د.ك</span><strong id="price_g22"><?php echo $k22; ?></strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>21</h3>
+                            <p ><span>د.ك</span><strong id="price_g21"><?php echo $k21; ?></strong></p>
+                        </li>
+                    </ul>
+                    <ul class="number-item">
+                        <li>
+                            <h3>18</h3>
+                            <p ><span>د.ك</span><strong id="price_g18"><?php echo $k18; ?></strong></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--FOOTER END-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.3.1.slim.min.js "></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js "></script>
+<script src="js/bootstrap.min.js "></script>
+<script src="https://www.dhahabonline.com/js/dhahab.js"></script>
+<script>
+
+                                 // Set the date we're counting down to
+            var countDownDate = new Date("April 19, 2019 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+							var currentDate = new Date();
+							var str = currentDate.toString();
+							var dateArray = str.split(" ");
+							var day = dateArray[0];
+							var month = dateArray[1];
+							var dayOfMonth = dateArray[2];
+							var year = dateArray[3];
+							var time = dateArray[4];
+							var dateString =  year + " " + dayOfMonth + " " + day + " " + month;
+							document.getElementById("timeOnly").innerHTML = time;
+							document.getElementById("dateOnly").innerHTML = dateString;
+            }, 1000);
+            
+   function APIRun( starttime , endtime , feq){
+	   
+	    var currentDate = new Date();
+        var str = currentDate.toString();
+		var dateArray = str.split(" ");
+		var timestr = dateArray[4];
+        var timeArray = timestr.split(":");
+	   
+	   
+	if(timeArray[0] >= starttime && timeArray[0] <= endtime) {
+		setInterval(function() {
+		$.ajax({
+			  url: "details.php",
+			  cache: false,
+			  success: function(html){
+				console.log(html);
+				var gold = JSON.parse(html);
+					$('#price_g24').html(gold.c24);
+					$('#price_g22').html(gold.c22);
+					$('#price_g21').html(gold.c21);
+					$('#price_g18').html(gold.c18);
+					$('#price_ounce').html(gold.ou);
+					
+			  }
+			});
+		
+		}, feq);
+		   
+	   }  /* Condition End */  
+	   
+   }
+   
+   /* Uncomment Below Line after API key change */
+            
+    //APIRun('08','20','100000');  
+            
+   
+
+	</script>
+</body>
+</html>
