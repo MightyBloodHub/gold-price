@@ -80,33 +80,38 @@ $k18 = round($k24 *0.750,2);
     </div>
 </div>
 	    <section class="product-showcase">
-    <div class="container">
-        <div class="row">
-            <!-- Product 1 -->
-            <div class="col-md-6">
-                <div class="product-item">
-                    <img src="images/p1a.jpg" alt="Product 1">
-                    <h3>Product 1 Name</h3>
-                    <p>Product 1 Description</p>
-                    <span class="product-price">د.ك Price</span>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Product 1 -->
+                <div class="swiper-slide">
+                    <div class="product-item">
+                        <img src="images/p1a.jpg" alt="Product 1">
+                        <h3>Product 1 Name</h3>
+                        <p>Product 1 Description</p>
+                        <span class="product-price">د.ك Price</span>
+                    </div>
                 </div>
+                
+                <!-- Product 2 -->
+                <div class="swiper-slide">
+                    <div class="product-item">
+                        <img src="images/p1b.jpg" alt="Product 2">
+                        <h3>Product 2 Name</h3>
+                        <p>Product 2 Description</p>
+                        <span class="product-price">د.ك Price</span>
+                    </div>
+                </div>
+                
+                <!-- Add more product slides as needed -->
             </div>
             
-            <!-- Product 2 -->
-            <div class="col-md-6">
-                <div class="product-item">
-                    <img src="images/p1b.jpg" alt="Product 2">
-                    <h3>Product 2 Name</h3>
-                    <p>Product 2 Description</p>
-                    <span class="product-price">د.ك Price</span>
-                </div>
-            </div>
-            
-            <!-- Add more product columns as needed -->
+            <!-- Add navigation buttons if desired -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-    </div>
-</section>
+    </section>
 
+	    
 </body>
 <!--FOOTER END-->
 <!-- Optional JavaScript -->
@@ -202,5 +207,18 @@ $k18 = round($k24 *0.750,2);
    
 
 	</script>
+	 <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 </body>
 </html>
