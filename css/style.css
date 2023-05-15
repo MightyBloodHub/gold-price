@@ -169,3 +169,42 @@ input:focus, select:focus, textarea:focus {
 .header-left {
 	padding-top: 53px;
 }
+/* Add these styles to your existing CSS */
+
+.product-showcase {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.product-item h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #b98570;
+}
